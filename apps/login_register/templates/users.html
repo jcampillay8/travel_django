@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Layout de Sitio Web con CSS GRID</title>
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'css/grid_02.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="contenedor">
+			<header class="header">
+				<h1>Current Users</h1>
+			</header>
+
+			<main class="contenido">
+				<table>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Birthdate</th>
+                        <th>Password</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for user in user_list %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name}} {{ user.last_name}}</td>
+                        <td>{{ user.email}}</td>
+                        <td>{{ user.birthdate}}</td>
+                        <td>{{ user.password|slice:"7:17"}}...</td>
+                        <td>{{ user.created_at}}</td>
+                        <td>
+                            <a href="{% url 'delete_user' id=user.id %}"  class="button-1">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div style="text-align: center; padding:20px">
+                    <a href="{% url 'home' %}" class="button-1">Home</a>
+                </div>
+			</main>
+			<footer class="footer">
+				Coding Dojo - Latam
+			</footer>
+		</div>
+	</body>
+</html>

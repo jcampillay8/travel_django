@@ -1,0 +1,44 @@
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Layout de Sitio Web con CSS GRID</title>
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'css/grid_02.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="contenedor">
+			<header class="header">
+				<h1>Schedule a travel {{ request.session.first_name }} </h1>
+                <p><a href="/travel/home" class='btn'>Home</a> | <a href="/travel/logout" class='btn_out'>Logout</a></p>  
+			</header>
+
+			<main class="contenido">
+                <h1>{{trip.destination}}</h1>
+
+                <ul>
+                    <li>Planned By: {{ trip.planner.first_name }} {{ trip.planner.last_name }}</li>
+                    <li>Description: {{ trip.description }}</li>
+                    <li>Travel Date From: {{ trip.date_from }}</li>
+                    <li>Travel Date To: {{ trip.date_to }}</li> 
+                </ul>
+
+                <h2>Other users joining the trip:</h2>
+                {% if trip.travelers %}
+                    <ul>
+                        {% for traveler in trip.travelers.all %}
+                            <li>{{ traveler.first_name }} {{ traveler.last_name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+			</main>
+			<footer class="footer">
+				Coding Dojo - Latam
+			</footer>
+		</div>
+	</body>
+</html>

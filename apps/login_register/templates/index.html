@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Layout de Sitio Web con CSS GRID</title>
+		{% load static %}
+        <link rel="stylesheet" href="{% static 'css/grid_01.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="contenedor">
+			<header class="header">
+				<h1>Dojo Reads</h1>
+                <a href="{% url 'users' %}" class="btn">Show Users</a>
+			</header>
+
+			<section class="section">
+				{% if messages %}
+                    <ul class="error-box">
+                    {% for message in messages %}
+                        <li >{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                <br><br>
+                <img src="{% static 'img/codingdojo.jpg' %}" alt="image">
+			</section>
+
+			<main class="contenido">
+				<div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="Indicator">
+                    </div>                    
+                    <form id="LoginForm" action='login' method='post'> 
+                        {% csrf_token %}
+                        <div class="form-item">
+                            <label class="label-item">Email:</label>
+                            <input class="input-item" type='email' name='loginEmail'>
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Password</label>
+                            <input class="input-item" type='password' name='password'>
+                        </div>
+                        <button type="submit" name='login' class="btn">Login</button>
+                        <a href="">Forgot password</a>
+                    </form>
+                    <form id="RegForm" action='register', method='post'>
+                        {% csrf_token %}
+                        <div class="form-item">
+                            <label class="label-item">First Name:</label>
+                            <input class="input-item" type='text' name='first_name'>
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Last Name:</label>
+                            <input class="input-item" type='text' name='last_name'>
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Username:</label>
+                            <input class="input-item" type='text' name='username'>
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Email Address:</label>
+                            <input class="input-item" type='email' name='email'>
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Birthdate:</label>
+                            <input class="input-item" type='date' name='birthdate' style="text-align: center;">
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Password:</label>
+                            <input class="input-item" type='password' name='password'>
+                        </div>
+                        <div class="form-item">
+                            <label class="label-item">Confirm Password:</label>
+                            <input class="input-item" type='password' name='confirm_password'>
+                        </div>
+                            <button type="submit" name="formAction" value='Login' class="btn">Register</button>
+                    </form>
+                </div>
+			</main>
+			<footer class="footer">
+				Coding Dojo - Latam
+			</footer>
+		</div>
+        <script src="{% static 'js/script.js' %}"></script>
+	</body>
+</html>
+

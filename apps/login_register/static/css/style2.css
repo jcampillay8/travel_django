@@ -1,0 +1,84 @@
+.contenedor .header{
+    background-color: #1a1a1a;
+    color: #fff;
+    grid-column:1/5;
+    text-align:unset;
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;    
+}
+
+.contenido{
+    text-align: center;
+}
+
+.contenido table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+.contenido td, .contenido th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.contenido tr:nth-child(even){background-color: #f2f2f2;}
+
+.contenido tr:hover {background-color: #ddd;}
+
+.contenido th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #045c84;
+    color: white;
+}
+
+.contenedor .footer{
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.button-1 {
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 5px;
+    background-color:#045c84;
+    color:white;
+    text-decoration: none;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+
+.btn_out{
+    display: inline-block;
+    background:  rgb(116, 14, 14);
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+}
+
+.btn{
+    display: inline-block;
+    background:  #045c84;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 10px;
+    transition: background 0.5s;
+}
+
+
+.error-box {
+    width: 400px;
+    margin: 0px auto;
+    border-radius: 3px;
+    background: rgb(161, 20, 20);
+    color: #fff;
+    padding: 8px;
+}
